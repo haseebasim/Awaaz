@@ -132,4 +132,10 @@ class ImageConstant {
   static String imgVector125 = 'assets/images/img_vector12_5.svg';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
+
+  static String callIcon = 'assets/images/call-icon.svg';
+
+  static String messageIcon = 'assets/images/message-icon.svg';
+
+
 }

@@ -7,1007 +7,1409 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorConstant.whiteA700,
-        body: Container(
-          width: size.width,
-          child: SingleChildScrollView(
-            child: Container(
-              decoration: BoxDecoration(
-                color: ColorConstant.whiteA700,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: ColorConstant.blue700,
-                        boxShadow: [
-                          BoxShadow(
-                            color: ColorConstant.black90040,
-                            spreadRadius: getHorizontalSize(
-                              2,
-                            ),
-                            blurRadius: getHorizontalSize(
-                              2,
-                            ),
-                            offset: Offset(
-                              0,
-                              2,
+        appBar: AppBar(
+          title: Container(
+            height: getVerticalSize(64),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                    // left: getHorizontalSize(
+                    //   34,
+                    // ),
+                    top: getVerticalSize(
+                      1,
+                    ),
+                    bottom: getVerticalSize(
+                      3,
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                      getSize(
+                        18.0,
+                      ),
+                    ),
+                    child: Image.asset(
+                      ImageConstant.imgUnsplashohkelo1,
+                      height: getSize(
+                        36,
+                      ),
+                      width: getSize(
+                        36,
+                      ),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: getHorizontalSize(
+                      10,
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: getHorizontalSize(
+                              3,
                             ),
                           ),
-                        ],
+                          child: Text(
+                            "John Doe",
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: ColorConstant.whiteA700,
+                              fontSize: getFontSize(
+                                18,
+                              ),
+                              fontFamily: 'DM Sans',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              width: size.width,
-                              margin: EdgeInsets.only(
-                                top: getVerticalSize(
-                                  22,
-                                ),
-                                bottom: getVerticalSize(
-                                  18,
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: getVerticalSize(
+                            2,
+                          ),
+                          right: getHorizontalSize(
+                            10,
+                          ),
+                        ),
+                        child: Text(
+                          "Online",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: ColorConstant.whiteA700,
+                            fontSize: getFontSize(
+                              10,
+                            ),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        backgroundColor: ColorConstant.whiteA700,
+        body: Stack(
+            // width: size.width,
+            // height: size.height,
+            children: [
+              Positioned(
+                // top: 0,
+                child: SingleChildScrollView(
+                  child: Container(
+                    width: size.width,
+                    decoration: BoxDecoration(
+                      color: ColorConstant.whiteA700,
+                    ),
+                    child: ListView(
+                      padding: EdgeInsets.only(bottom: getVerticalSize(80)),
+                      physics: BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      // mainAxisSize: MainAxisSize.min,
+                      // mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                20,
+                              ),
+                              top: getVerticalSize(
+                                11,
+                              ),
+                              right: getHorizontalSize(
+                                20,
+                              ),
+                            ),
+                            padding: EdgeInsets.only(
+                              top: getVerticalSize(
+                                4,
+                              ),
+                              left: getHorizontalSize(10),
+                              right: getHorizontalSize(
+                                10,
+                              ),
+                              bottom: getVerticalSize(
+                                3,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                              color: ColorConstant.gray200,
+                              borderRadius: BorderRadius.circular(
+                                getHorizontalSize(
+                                  20,
                                 ),
                               ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  left: getHorizontalSize(
-                                    23,
+                            ),
+                            child: Text(
+                              "24 October, Sunday",
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                color: ColorConstant.gray800,
+                                fontSize: getFontSize(
+                                  10,
+                                ),
+                                fontFamily: 'DM Sans',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                20,
+                              ),
+                              top: getVerticalSize(
+                                30,
+                              ),
+                              right: getHorizontalSize(
+                                20,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: getHorizontalSize(
+                                    293,
                                   ),
-                                  right: getHorizontalSize(
-                                    197,
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      20,
+                                    ),
+                                    top: getVerticalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      10,
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: ColorConstant.gray200,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      topRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      bottomLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          5,
+                                        ),
+                                      ),
+                                      bottomRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "This is a sample big message with a\nlonger text paragraph",
+                                    maxLines: null,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        16,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        top: getVerticalSize(
-                                          14,
-                                        ),
-                                        bottom: getVerticalSize(
-                                          17,
-                                        ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    right: getHorizontalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
                                       ),
-                                      child: Container(
-                                        height: getVerticalSize(
-                                          9,
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                21,
+                              ),
+                              top: getVerticalSize(
+                                20,
+                              ),
+                              right: getHorizontalSize(
+                                21,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    width: getHorizontalSize(
+                                      293,
+                                    ),
+                                    padding: EdgeInsets.only(
+                                      top: getVerticalSize(
+                                        10,
+                                      ),
+                                      right: getHorizontalSize(
+                                        20,
+                                      ),
+                                      bottom: getVerticalSize(
+                                        10,
+                                      ),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: ColorConstant.blue700,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
+                                          ),
                                         ),
-                                        width: getHorizontalSize(
-                                          7,
+                                        topRight: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
+                                          ),
                                         ),
-                                        child: SvgPicture.asset(
-                                          ImageConstant.imgVector123,
-                                          fit: BoxFit.fill,
+                                        bottomLeft: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
+                                          ),
+                                        ),
+                                        bottomRight: Radius.circular(
+                                          getHorizontalSize(
+                                            5,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: getHorizontalSize(
-                                          34,
+                                    child: Text(
+                                      "This is a sample big message with a\nlonger text paragraph",
+                                      maxLines: null,
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: ColorConstant.whiteA700,
+                                        fontSize: getFontSize(
+                                          16,
                                         ),
-                                        top: getVerticalSize(
-                                          1,
-                                        ),
-                                        bottom: getVerticalSize(
-                                          3,
+                                        fontFamily: 'DM Sans',
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      10,
+                                    ),
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                20,
+                              ),
+                              top: getVerticalSize(
+                                20,
+                              ),
+                              right: getHorizontalSize(
+                                20,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: getHorizontalSize(
+                                    293,
+                                  ),
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      20,
+                                    ),
+                                    top: getVerticalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      10,
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: ColorConstant.gray200,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
                                         ),
                                       ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(
-                                          getSize(
-                                            18.0,
-                                          ),
+                                      topRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
                                         ),
-                                        child: Image.asset(
-                                          ImageConstant.imgUnsplashohkelo1,
-                                          height: getSize(
-                                            36,
-                                          ),
-                                          width: getSize(
-                                            36,
-                                          ),
-                                          fit: BoxFit.fill,
+                                      ),
+                                      bottomLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          5,
+                                        ),
+                                      ),
+                                      bottomRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: getHorizontalSize(
-                                          10,
+                                  ),
+                                  child: Text(
+                                    "This is a sample message for a chat",
+                                    maxLines: null,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        16,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    right: getHorizontalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                21,
+                              ),
+                              top: getVerticalSize(
+                                20,
+                              ),
+                              right: getHorizontalSize(
+                                21,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    height: getVerticalSize(
+                                      41,
+                                    ),
+                                    width: getHorizontalSize(
+                                      277,
+                                    ),
+                                    child: Card(
+                                      clipBehavior: Clip.antiAlias,
+                                      elevation: 0,
+                                      margin: EdgeInsets.all(0),
+                                      color: ColorConstant.blue700,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          topRight: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          bottomLeft: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          bottomRight: Radius.circular(
+                                            getHorizontalSize(
+                                              5,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                      child: Stack(
                                         children: [
                                           Align(
                                             alignment: Alignment.center,
                                             child: Padding(
                                               padding: EdgeInsets.only(
                                                 left: getHorizontalSize(
-                                                  3,
+                                                  20,
                                                 ),
-                                              ),
-                                              child: Text(
-                                                "John Doe",
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  color:
-                                                      ColorConstant.whiteA700,
-                                                  fontSize: getFontSize(
-                                                    18,
-                                                  ),
-                                                  fontFamily: 'DM Sans',
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                              top: getVerticalSize(
-                                                2,
-                                              ),
-                                              right: getHorizontalSize(
-                                                10,
-                                              ),
-                                            ),
-                                            child: Text(
-                                              "Online",
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: ColorConstant.whiteA700,
-                                                fontSize: getFontSize(
+                                                top: getVerticalSize(
                                                   10,
                                                 ),
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w300,
+                                                right: getHorizontalSize(
+                                                  20,
+                                                ),
+                                                bottom: getVerticalSize(
+                                                  10,
+                                                ),
+                                              ),
+                                              child: Container(
+                                                height: getVerticalSize(
+                                                  21,
+                                                ),
+                                                width: getHorizontalSize(
+                                                  237,
+                                                ),
+                                                child: SvgPicture.asset(
+                                                  ImageConstant.imgAudio1,
+                                                  fit: BoxFit.fill,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      10,
+                                    ),
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      margin: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          20,
                         ),
-                        top: getVerticalSize(
-                          11,
-                        ),
-                        right: getHorizontalSize(
-                          20,
-                        ),
-                      ),
-                      padding: EdgeInsets.only(
-                        top: getVerticalSize(
-                          4,
-                        ),
-                        right: getHorizontalSize(
-                          30,
-                        ),
-                        bottom: getVerticalSize(
-                          3,
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: ColorConstant.gray200,
-                        borderRadius: BorderRadius.circular(
-                          getHorizontalSize(
-                            20,
-                          ),
-                        ),
-                      ),
-                      child: Text(
-                        "24 October, Sunday",
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          color: ColorConstant.gray800,
-                          fontSize: getFontSize(
-                            10,
-                          ),
-                          fontFamily: 'DM Sans',
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          20,
-                        ),
-                        top: getVerticalSize(
-                          30,
-                        ),
-                        right: getHorizontalSize(
-                          20,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: getHorizontalSize(
-                              293,
-                            ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
                             padding: EdgeInsets.only(
                               left: getHorizontalSize(
                                 20,
                               ),
                               top: getVerticalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                10,
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              color: ColorConstant.gray200,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                                topRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                                bottomLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    5,
-                                  ),
-                                ),
-                                bottomRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Text(
-                              "This is a sample big message with a\nlonger text paragraph",
-                              maxLines: null,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  16,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: getVerticalSize(
-                                6,
-                              ),
-                              right: getHorizontalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                1,
-                              ),
-                            ),
-                            child: Text(
-                              "10:30 AM",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  8,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          21,
-                        ),
-                        top: getVerticalSize(
-                          20,
-                        ),
-                        right: getHorizontalSize(
-                          21,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              width: getHorizontalSize(
-                                293,
-                              ),
-                              padding: EdgeInsets.only(
-                                top: getVerticalSize(
-                                  10,
-                                ),
-                                right: getHorizontalSize(
-                                  20,
-                                ),
-                                bottom: getVerticalSize(
-                                  10,
-                                ),
-                              ),
-                              decoration: BoxDecoration(
-                                color: ColorConstant.blue700,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(
-                                    getHorizontalSize(
-                                      15,
-                                    ),
-                                  ),
-                                  topRight: Radius.circular(
-                                    getHorizontalSize(
-                                      15,
-                                    ),
-                                  ),
-                                  bottomLeft: Radius.circular(
-                                    getHorizontalSize(
-                                      15,
-                                    ),
-                                  ),
-                                  bottomRight: Radius.circular(
-                                    getHorizontalSize(
-                                      5,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              child: Text(
-                                "This is a sample big message with a\nlonger text paragraph",
-                                maxLines: null,
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                  color: ColorConstant.whiteA700,
-                                  fontSize: getFontSize(
-                                    16,
-                                  ),
-                                  fontFamily: 'DM Sans',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              left: getHorizontalSize(
-                                10,
-                              ),
-                              top: getVerticalSize(
-                                6,
-                              ),
-                              bottom: getVerticalSize(
-                                1,
-                              ),
-                            ),
-                            child: Text(
-                              "10:30 AM",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  8,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          20,
-                        ),
-                        top: getVerticalSize(
-                          20,
-                        ),
-                        right: getHorizontalSize(
-                          20,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: getHorizontalSize(
-                              293,
-                            ),
-                            padding: EdgeInsets.only(
-                              left: getHorizontalSize(
                                 20,
                               ),
-                              top: getVerticalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                10,
+                              right: getHorizontalSize(
+                                20,
                               ),
                             ),
-                            decoration: BoxDecoration(
-                              color: ColorConstant.gray200,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: getHorizontalSize(
+                                    293,
+                                  ),
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      20,
+                                    ),
+                                    top: getVerticalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      10,
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: ColorConstant.gray200,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      topRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      bottomLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          5,
+                                        ),
+                                      ),
+                                      bottomRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "This is a sample message for a chat",
+                                    maxLines: null,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        16,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
-                                topRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    right: getHorizontalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
-                                bottomLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    5,
-                                  ),
-                                ),
-                                bottomRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Text(
-                              "This is a sample message for a chat",
-                              maxLines: null,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  16,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
+                              ],
                             ),
                           ),
-                          Padding(
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
                             padding: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                21,
+                              ),
                               top: getVerticalSize(
-                                6,
+                                20,
                               ),
                               right: getHorizontalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                1,
+                                21,
                               ),
                             ),
-                            child: Text(
-                              "10:30 AM",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  8,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          21,
-                        ),
-                        top: getVerticalSize(
-                          20,
-                        ),
-                        right: getHorizontalSize(
-                          21,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              height: getVerticalSize(
-                                41,
-                              ),
-                              width: getHorizontalSize(
-                                277,
-                              ),
-                              child: Card(
-                                clipBehavior: Clip.antiAlias,
-                                elevation: 0,
-                                margin: EdgeInsets.all(0),
-                                color: ColorConstant.blue700,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(
-                                      getHorizontalSize(
-                                        15,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    width: getHorizontalSize(
+                                      293,
+                                    ),
+                                    padding: EdgeInsets.only(
+                                      top: getVerticalSize(
+                                        10,
+                                      ),
+                                      right: getHorizontalSize(
+                                        20,
+                                      ),
+                                      bottom: getVerticalSize(
+                                        10,
                                       ),
                                     ),
-                                    topRight: Radius.circular(
-                                      getHorizontalSize(
-                                        15,
-                                      ),
-                                    ),
-                                    bottomLeft: Radius.circular(
-                                      getHorizontalSize(
-                                        15,
-                                      ),
-                                    ),
-                                    bottomRight: Radius.circular(
-                                      getHorizontalSize(
-                                        5,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                          left: getHorizontalSize(
-                                            20,
-                                          ),
-                                          top: getVerticalSize(
-                                            10,
-                                          ),
-                                          right: getHorizontalSize(
-                                            20,
-                                          ),
-                                          bottom: getVerticalSize(
-                                            10,
+                                    decoration: BoxDecoration(
+                                      color: ColorConstant.blue700,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
                                           ),
                                         ),
-                                        child: Container(
-                                          height: getVerticalSize(
-                                            21,
+                                        topRight: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
                                           ),
-                                          width: getHorizontalSize(
-                                            237,
+                                        ),
+                                        bottomLeft: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
                                           ),
-                                          child: SvgPicture.asset(
-                                            ImageConstant.imgAudio1,
-                                            fit: BoxFit.fill,
+                                        ),
+                                        bottomRight: Radius.circular(
+                                          getHorizontalSize(
+                                            5,
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ],
+                                    child: Text(
+                                      "This is a sample message for a chat",
+                                      maxLines: null,
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: ColorConstant.whiteA700,
+                                        fontSize: getFontSize(
+                                          16,
+                                        ),
+                                        fontFamily: 'DM Sans',
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      10,
+                                    ),
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Padding(
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
                             padding: EdgeInsets.only(
                               left: getHorizontalSize(
-                                10,
+                                21,
                               ),
                               top: getVerticalSize(
-                                6,
+                                20,
                               ),
-                              bottom: getVerticalSize(
-                                1,
+                              right: getHorizontalSize(
+                                21,
                               ),
                             ),
-                            child: Text(
-                              "10:30 AM",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  8,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    width: getHorizontalSize(
+                                      293,
+                                    ),
+                                    padding: EdgeInsets.only(
+                                      top: getVerticalSize(
+                                        10,
+                                      ),
+                                      right: getHorizontalSize(
+                                        20,
+                                      ),
+                                      bottom: getVerticalSize(
+                                        10,
+                                      ),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: ColorConstant.blue700,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
+                                          ),
+                                        ),
+                                        topRight: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
+                                          ),
+                                        ),
+                                        bottomLeft: Radius.circular(
+                                          getHorizontalSize(
+                                            15,
+                                          ),
+                                        ),
+                                        bottomRight: Radius.circular(
+                                          getHorizontalSize(
+                                            5,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      "This is a sample message for a chat",
+                                      maxLines: null,
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: ColorConstant.whiteA700,
+                                        fontSize: getFontSize(
+                                          16,
+                                        ),
+                                        fontFamily: 'DM Sans',
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      10,
+                                    ),
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          20,
                         ),
-                        top: getVerticalSize(
-                          20,
-                        ),
-                        right: getHorizontalSize(
-                          20,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: getHorizontalSize(
-                              293,
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                21,
+                              ),
+                              top: getVerticalSize(
+                                20,
+                              ),
+                              right: getHorizontalSize(
+                                21,
+                              ),
                             ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    height: getVerticalSize(
+                                      41,
+                                    ),
+                                    width: getHorizontalSize(
+                                      277,
+                                    ),
+                                    child: Card(
+                                      clipBehavior: Clip.antiAlias,
+                                      elevation: 0,
+                                      margin: EdgeInsets.all(0),
+                                      color: ColorConstant.blue700,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          topRight: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          bottomLeft: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          bottomRight: Radius.circular(
+                                            getHorizontalSize(
+                                              5,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.center,
+                                            child: Padding(
+                                              padding: EdgeInsets.only(
+                                                left: getHorizontalSize(
+                                                  20,
+                                                ),
+                                                top: getVerticalSize(
+                                                  10,
+                                                ),
+                                                right: getHorizontalSize(
+                                                  20,
+                                                ),
+                                                bottom: getVerticalSize(
+                                                  10,
+                                                ),
+                                              ),
+                                              child: Container(
+                                                height: getVerticalSize(
+                                                  21,
+                                                ),
+                                                width: getHorizontalSize(
+                                                  237,
+                                                ),
+                                                child: SvgPicture.asset(
+                                                  ImageConstant.imgAudio1,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      10,
+                                    ),
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
                             padding: EdgeInsets.only(
                               left: getHorizontalSize(
                                 20,
                               ),
                               top: getVerticalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                10,
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              color: ColorConstant.gray200,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                                topRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                                bottomLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    5,
-                                  ),
-                                ),
-                                bottomRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Text(
-                              "This is a sample message for a chat",
-                              maxLines: null,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  16,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: getVerticalSize(
-                                6,
+                                20,
                               ),
                               right: getHorizontalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                1,
+                                20,
                               ),
                             ),
-                            child: Text(
-                              "10:30 AM",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  8,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: getHorizontalSize(
+                                    293,
+                                  ),
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      20,
+                                    ),
+                                    top: getVerticalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      10,
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: ColorConstant.gray200,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      topRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      bottomLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          5,
+                                        ),
+                                      ),
+                                      bottomRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "This is a sample message for a chat",
+                                    maxLines: null,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        16,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
                                 ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    right: getHorizontalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          21,
-                        ),
-                        top: getVerticalSize(
-                          20,
-                        ),
-                        right: getHorizontalSize(
-                          21,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              width: getHorizontalSize(
-                                293,
-                              ),
-                              padding: EdgeInsets.only(
-                                top: getVerticalSize(
-                                  10,
-                                ),
-                                right: getHorizontalSize(
-                                  20,
-                                ),
-                                bottom: getVerticalSize(
-                                  10,
-                                ),
-                              ),
-                              decoration: BoxDecoration(
-                                color: ColorConstant.blue700,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(
-                                    getHorizontalSize(
-                                      15,
-                                    ),
-                                  ),
-                                  topRight: Radius.circular(
-                                    getHorizontalSize(
-                                      15,
-                                    ),
-                                  ),
-                                  bottomLeft: Radius.circular(
-                                    getHorizontalSize(
-                                      15,
-                                    ),
-                                  ),
-                                  bottomRight: Radius.circular(
-                                    getHorizontalSize(
-                                      5,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              child: Text(
-                                "This is a sample message for a chat",
-                                maxLines: null,
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                  color: ColorConstant.whiteA700,
-                                  fontSize: getFontSize(
-                                    16,
-                                  ),
-                                  fontFamily: 'DM Sans',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              left: getHorizontalSize(
-                                10,
-                              ),
-                              top: getVerticalSize(
-                                6,
-                              ),
-                              bottom: getVerticalSize(
-                                1,
-                              ),
-                            ),
-                            child: Text(
-                              "10:30 AM",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  8,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: getHorizontalSize(
-                          20,
-                        ),
-                        top: getVerticalSize(
-                          20,
-                        ),
-                        right: getHorizontalSize(
-                          20,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: getHorizontalSize(
-                              293,
-                            ),
+                        ),Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
                             padding: EdgeInsets.only(
                               left: getHorizontalSize(
                                 20,
                               ),
                               top: getVerticalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                10,
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              color: ColorConstant.gray200,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                                topRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                                bottomLeft: Radius.circular(
-                                  getHorizontalSize(
-                                    5,
-                                  ),
-                                ),
-                                bottomRight: Radius.circular(
-                                  getHorizontalSize(
-                                    15,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Text(
-                              "This is a sample message for a chat",
-                              maxLines: null,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  16,
-                                ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: getVerticalSize(
-                                6,
+                                20,
                               ),
                               right: getHorizontalSize(
-                                10,
-                              ),
-                              bottom: getVerticalSize(
-                                1,
+                                20,
                               ),
                             ),
-                            child: Text(
-                              "10:30 AM",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                color: ColorConstant.gray601,
-                                fontSize: getFontSize(
-                                  8,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: getHorizontalSize(
+                                    293,
+                                  ),
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      20,
+                                    ),
+                                    top: getVerticalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      10,
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: ColorConstant.gray200,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      topRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                      bottomLeft: Radius.circular(
+                                        getHorizontalSize(
+                                          5,
+                                        ),
+                                      ),
+                                      bottomRight: Radius.circular(
+                                        getHorizontalSize(
+                                          15,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "This is a sample message for a chat",
+                                    maxLines: null,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        16,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
                                 ),
-                                fontFamily: 'DM Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    right: getHorizontalSize(
+                                      10,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: getHorizontalSize(
+                                21,
+                              ),
+                              top: getVerticalSize(
+                                20,
+                              ),
+                              right: getHorizontalSize(
+                                21,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    height: getVerticalSize(
+                                      41,
+                                    ),
+                                    width: getHorizontalSize(
+                                      277,
+                                    ),
+                                    child: Card(
+                                      clipBehavior: Clip.antiAlias,
+                                      elevation: 0,
+                                      margin: EdgeInsets.all(0),
+                                      color: ColorConstant.blue700,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          topRight: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          bottomLeft: Radius.circular(
+                                            getHorizontalSize(
+                                              15,
+                                            ),
+                                          ),
+                                          bottomRight: Radius.circular(
+                                            getHorizontalSize(
+                                              5,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.center,
+                                            child: Padding(
+                                              padding: EdgeInsets.only(
+                                                left: getHorizontalSize(
+                                                  20,
+                                                ),
+                                                top: getVerticalSize(
+                                                  10,
+                                                ),
+                                                right: getHorizontalSize(
+                                                  20,
+                                                ),
+                                                bottom: getVerticalSize(
+                                                  10,
+                                                ),
+                                              ),
+                                              child: Container(
+                                                height: getVerticalSize(
+                                                  21,
+                                                ),
+                                                width: getHorizontalSize(
+                                                  237,
+                                                ),
+                                                child: SvgPicture.asset(
+                                                  ImageConstant.imgAudio1,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: getHorizontalSize(
+                                      10,
+                                    ),
+                                    top: getVerticalSize(
+                                      6,
+                                    ),
+                                    bottom: getVerticalSize(
+                                      1,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "10:30 AM",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: ColorConstant.gray601,
+                                      fontSize: getFontSize(
+                                        8,
+                                      ),
+                                      fontFamily: 'DM Sans',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.center,
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    decoration: BoxDecoration(color: ColorConstant.whiteA700),
                     child: Padding(
                       padding: EdgeInsets.only(
                         left: getHorizontalSize(
                           20,
                         ),
                         top: getVerticalSize(
-                          61,
+                          14,
                         ),
                         right: getHorizontalSize(
                           20,
                         ),
                         bottom: getVerticalSize(
-                          34,
+                          14,
                         ),
                       ),
                       child: Row(
@@ -1144,11 +1546,9 @@ class ChatScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
+            ]),
       ),
     );
   }

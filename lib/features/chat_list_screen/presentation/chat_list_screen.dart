@@ -8,6 +8,24 @@ class ChatListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: ColorConstant.blue700,
+          title: Text(
+            "Chat",
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: ColorConstant.whiteA700,
+              fontSize: getFontSize(
+                22,
+              ),
+              fontFamily: 'DM Sans',
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
         backgroundColor: ColorConstant.whiteA700,
         body: Container(
           width: size.width,
@@ -21,135 +39,135 @@ class ChatListScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: ColorConstant.blue700,
-                        boxShadow: [
-                          BoxShadow(
-                            color: ColorConstant.black90040,
-                            spreadRadius: getHorizontalSize(
-                              2,
-                            ),
-                            blurRadius: getHorizontalSize(
-                              2,
-                            ),
-                            offset: Offset(
-                              0,
-                              2,
-                            ),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              width: size.width,
-                              margin: EdgeInsets.only(
-                                top: getVerticalSize(
-                                  26,
-                                ),
-                                bottom: getVerticalSize(
-                                  25,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  left: getHorizontalSize(
-                                    22,
-                                  ),
-                                  right: getHorizontalSize(
-                                    16,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        top: getVerticalSize(
-                                          10,
-                                        ),
-                                        bottom: getVerticalSize(
-                                          10,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        height: getVerticalSize(
-                                          9,
-                                        ),
-                                        width: getHorizontalSize(
-                                          7,
-                                        ),
-                                        child: SvgPicture.asset(
-                                          ImageConstant.imgVector124,
-                                          fit: BoxFit.fill,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      "Chats",
-                                      overflow: TextOverflow.ellipsis,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: ColorConstant.whiteA700,
-                                        fontSize: getFontSize(
-                                          22,
-                                        ),
-                                        fontFamily: 'DM Sans',
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: getVerticalSize(
-                                          1,
-                                        ),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(
-                                          getSize(
-                                            14.0,
-                                          ),
-                                        ),
-                                        child: Image.asset(
-                                          ImageConstant.imgImage72,
-                                          height: getSize(
-                                            28,
-                                          ),
-                                          width: getSize(
-                                            28,
-                                          ),
-                                          fit: BoxFit.fill,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  // Align(
+                  //   alignment: Alignment.centerLeft,
+                  //   child: Container(
+                  //     width: double.infinity,
+                  //     decoration: BoxDecoration(
+                  //       color: ColorConstant.blue700,
+                  //       boxShadow: [
+                  //         BoxShadow(
+                  //           color: ColorConstant.black90040,
+                  //           spreadRadius: getHorizontalSize(
+                  //             2,
+                  //           ),
+                  //           blurRadius: getHorizontalSize(
+                  //             2,
+                  //           ),
+                  //           offset: Offset(
+                  //             0,
+                  //             2,
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //     child: Column(
+                  //       mainAxisSize: MainAxisSize.min,
+                  //       crossAxisAlignment: CrossAxisAlignment.center,
+                  //       mainAxisAlignment: MainAxisAlignment.start,
+                  //       children: [
+                  //         Align(
+                  //           alignment: Alignment.centerLeft,
+                  //           child: Container(
+                  //             width: size.width,
+                  //             margin: EdgeInsets.only(
+                  //               top: getVerticalSize(
+                  //                 26,
+                  //               ),
+                  //               bottom: getVerticalSize(
+                  //                 25,
+                  //               ),
+                  //             ),
+                  //             child: Padding(
+                  //               padding: EdgeInsets.only(
+                  //                 left: getHorizontalSize(
+                  //                   22,
+                  //                 ),
+                  //                 right: getHorizontalSize(
+                  //                   16,
+                  //                 ),
+                  //               ),
+                  //               child: Row(
+                  //                 mainAxisAlignment:
+                  //                     MainAxisAlignment.spaceBetween,
+                  //                 crossAxisAlignment: CrossAxisAlignment.center,
+                  //                 mainAxisSize: MainAxisSize.max,
+                  //                 children: [
+                  //                   Padding(
+                  //                     padding: EdgeInsets.only(
+                  //                       top: getVerticalSize(
+                  //                         10,
+                  //                       ),
+                  //                       bottom: getVerticalSize(
+                  //                         10,
+                  //                       ),
+                  //                     ),
+                  //                     child: Container(
+                  //                       height: getVerticalSize(
+                  //                         9,
+                  //                       ),
+                  //                       width: getHorizontalSize(
+                  //                         7,
+                  //                       ),
+                  //                       child: SvgPicture.asset(
+                  //                         ImageConstant.imgVector124,
+                  //                         fit: BoxFit.fill,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                   Text(
+                  //                     "Chats",
+                  //                     overflow: TextOverflow.ellipsis,
+                  //                     textAlign: TextAlign.center,
+                  //                     style: TextStyle(
+                  //                       color: ColorConstant.whiteA700,
+                  //                       fontSize: getFontSize(
+                  //                         22,
+                  //                       ),
+                  //                       fontFamily: 'DM Sans',
+                  //                       fontWeight: FontWeight.w400,
+                  //                     ),
+                  //                   ),
+                  //                   Padding(
+                  //                     padding: EdgeInsets.only(
+                  //                       bottom: getVerticalSize(
+                  //                         1,
+                  //                       ),
+                  //                     ),
+                  //                     child: ClipRRect(
+                  //                       borderRadius: BorderRadius.circular(
+                  //                         getSize(
+                  //                           14.0,
+                  //                         ),
+                  //                       ),
+                  //                       child: Image.asset(
+                  //                         ImageConstant.imgImage72,
+                  //                         height: getSize(
+                  //                           28,
+                  //                         ),
+                  //                         width: getSize(
+                  //                           28,
+                  //                         ),
+                  //                         fit: BoxFit.fill,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: EdgeInsets.only(
                       left: getHorizontalSize(
                         21,
                       ),
                       top: getVerticalSize(
-                        59,
+                        20,
                       ),
                       right: getHorizontalSize(
                         16,

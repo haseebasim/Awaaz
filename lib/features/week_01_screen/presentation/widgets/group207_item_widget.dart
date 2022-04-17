@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
+import 'package:haseeb_s_application/features/recordings_screen/presentation/recordings_screen.dart';
 
 class Group207ItemWidget extends StatelessWidget {
   @override
@@ -118,63 +119,67 @@ class Group207ItemWidget extends StatelessWidget {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: getHorizontalSize(
-                  22,
-                ),
-                top: getVerticalSize(
-                  24,
-                ),
-                right: getHorizontalSize(
-                  22,
-                ),
-                bottom: getVerticalSize(
-                  26,
-                ),
-              ),
-              child: Container(
-                alignment: Alignment.center,
-                height: getVerticalSize(
-                  43,
-                ),
-                width: getHorizontalSize(
-                  303,
-                ),
+          InkWell(
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => RecordingsScreen())),
+            child: Align(
+              alignment: Alignment.center,
+              child: Padding(
                 padding: EdgeInsets.only(
                   left: getHorizontalSize(
-                    30,
+                    22,
                   ),
                   top: getVerticalSize(
-                    6,
+                    24,
                   ),
                   right: getHorizontalSize(
-                    30,
+                    22,
                   ),
                   bottom: getVerticalSize(
-                    6.6400146,
+                    26,
                   ),
                 ),
-                decoration: BoxDecoration(
-                  color: ColorConstant.amber700,
-                  borderRadius: BorderRadius.circular(
-                    getHorizontalSize(
-                      10,
+                child: Container(
+                  alignment: Alignment.center,
+                  height: getVerticalSize(
+                    43,
+                  ),
+                  width: getHorizontalSize(
+                    303,
+                  ),
+                  padding: EdgeInsets.only(
+                    left: getHorizontalSize(
+                      30,
+                    ),
+                    top: getVerticalSize(
+                      6,
+                    ),
+                    right: getHorizontalSize(
+                      30,
+                    ),
+                    bottom: getVerticalSize(
+                      6.6400146,
                     ),
                   ),
-                ),
-                child: Text(
-                  'View Recordings',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: ColorConstant.whiteA700,
-                    fontSize: getFontSize(
-                      16,
+                  decoration: BoxDecoration(
+                    color: ColorConstant.amber700,
+                    borderRadius: BorderRadius.circular(
+                      getHorizontalSize(
+                        10,
+                      ),
                     ),
-                    fontFamily: 'DM Sans',
-                    fontWeight: FontWeight.w400,
+                  ),
+                  child: Text(
+                    'View Recordings',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: ColorConstant.whiteA700,
+                      fontSize: getFontSize(
+                        16,
+                      ),
+                      fontFamily: 'DM Sans',
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
+import 'package:haseeb_s_application/features/patient_profile2_dialog/presentation/patient_profile2_dialog.dart';
 
 class PatientProfile1Dialog extends StatelessWidget {
   @override
@@ -14,115 +15,30 @@ class PatientProfile1Dialog extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             color: ColorConstant.whiteA700,
-            borderRadius: BorderRadius.circular(
-              getHorizontalSize(
-                5,
-              ),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: ColorConstant.gray40041,
-                spreadRadius: getHorizontalSize(
-                  2,
-                ),
-                blurRadius: getHorizontalSize(
-                  2,
-                ),
-                offset: Offset(
-                  0,
-                  2,
-                ),
-              ),
-            ],
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: ColorConstant.blue700,
-                    borderRadius: BorderRadius.circular(
-                      getHorizontalSize(
-                        5,
-                      ),
+              Container(
+                width: double.infinity,
+                height: getVerticalSize(64),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: ColorConstant.blue700,
+                ),
+                child: Text(
+                  "New Appointment",
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: ColorConstant.whiteA700,
+                    fontSize: getFontSize(
+                      20,
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: ColorConstant.gray40041,
-                        spreadRadius: getHorizontalSize(
-                          2,
-                        ),
-                        blurRadius: getHorizontalSize(
-                          2,
-                        ),
-                        offset: Offset(
-                          0,
-                          2,
-                        ),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: getHorizontalSize(
-                            16,
-                          ),
-                          top: getVerticalSize(
-                            19,
-                          ),
-                          bottom: getVerticalSize(
-                            19,
-                          ),
-                        ),
-                        child: Text(
-                          "New Appointment",
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: ColorConstant.whiteA700,
-                            fontSize: getFontSize(
-                              20,
-                            ),
-                            fontFamily: 'DM Sans',
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: getVerticalSize(
-                            24,
-                          ),
-                          right: getHorizontalSize(
-                            16,
-                          ),
-                          bottom: getVerticalSize(
-                            24,
-                          ),
-                        ),
-                        child: Container(
-                          height: getSize(
-                            16,
-                          ),
-                          width: getSize(
-                            16,
-                          ),
-                          child: SvgPicture.asset(
-                            ImageConstant.imgVector4,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                    ],
+                    fontFamily: 'DM Sans',
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
@@ -149,9 +65,6 @@ class PatientProfile1Dialog extends StatelessWidget {
                     Container(
                       height: getVerticalSize(
                         54,
-                      ),
-                      width: getHorizontalSize(
-                        215,
                       ),
                       margin: EdgeInsets.only(
                         left: getHorizontalSize(
@@ -215,7 +128,7 @@ class PatientProfile1Dialog extends StatelessWidget {
                                   Padding(
                                     padding: EdgeInsets.only(
                                       left: getHorizontalSize(
-                                        47,
+                                        45,
                                       ),
                                     ),
                                     child: Text(
@@ -317,26 +230,11 @@ class PatientProfile1Dialog extends StatelessWidget {
                           ),
                         ),
                         child: Container(
-                          alignment: Alignment.center,
                           height: getVerticalSize(
                             43,
                           ),
                           width: getHorizontalSize(
                             284,
-                          ),
-                          padding: EdgeInsets.only(
-                            left: getHorizontalSize(
-                              13,
-                            ),
-                            top: getVerticalSize(
-                              12,
-                            ),
-                            right: getHorizontalSize(
-                              30,
-                            ),
-                            bottom: getVerticalSize(
-                              10,
-                            ),
                           ),
                           decoration: BoxDecoration(
                             color: ColorConstant.gray200,
@@ -346,13 +244,43 @@ class PatientProfile1Dialog extends StatelessWidget {
                               ),
                             ),
                           ),
-                          child: Text(
-                            'Patient Name:',
-                            textAlign: TextAlign.center,
+                          child: TextFormField(
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                              hintText: 'Patient Name',
+                              hintStyle: TextStyle(
+                                fontSize: getFontSize(
+                                  16.0,
+                                ),
+                                color: ColorConstant.gray600,
+                              ),
+                              contentPadding:
+                                  EdgeInsets.only(left: getHorizontalSize(16)),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(
+                                  getHorizontalSize(
+                                    5,
+                                  ),
+                                ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(
+                                  getHorizontalSize(
+                                    5,
+                                  ),
+                                ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
                             style: TextStyle(
-                              color: ColorConstant.gray501,
+                              color: ColorConstant.gray600,
                               fontSize: getFontSize(
-                                16,
+                                16.0,
                               ),
                               fontFamily: 'DM Sans',
                               fontWeight: FontWeight.w400,
@@ -365,6 +293,7 @@ class PatientProfile1Dialog extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Container(
                         width: double.infinity,
+                        height: getVerticalSize(111),
                         margin: EdgeInsets.only(
                           top: getVerticalSize(
                             14,
@@ -378,44 +307,48 @@ class PatientProfile1Dialog extends StatelessWidget {
                             ),
                           ),
                         ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  left: getHorizontalSize(
-                                    13,
-                                  ),
-                                  top: getVerticalSize(
-                                    12,
-                                  ),
-                                  right: getHorizontalSize(
-                                    227,
-                                  ),
-                                  bottom: getVerticalSize(
-                                    78,
-                                  ),
-                                ),
-                                child: Text(
-                                  "Notes",
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: ColorConstant.gray501,
-                                    fontSize: getFontSize(
-                                      16,
-                                    ),
-                                    fontFamily: 'DM Sans',
-                                    fontWeight: FontWeight.w400,
-                                  ),
+                        child: TextFormField(
+                          maxLines: 6,
+                          textAlignVertical: TextAlignVertical.center,
+                          decoration: InputDecoration(
+                            hintText: 'Notes',
+                            hintStyle: TextStyle(
+                              fontSize: getFontSize(
+                                16.0,
+                              ),
+                              color: ColorConstant.gray600,
+                            ),
+                            contentPadding:
+                                EdgeInsets.only(left: getHorizontalSize(16),top: getHorizontalSize(16)),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                getHorizontalSize(
+                                  5,
                                 ),
                               ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
                             ),
-                          ],
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                getHorizontalSize(
+                                  5,
+                                ),
+                              ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                            ),
+                          ),
+                          style: TextStyle(
+                            color: ColorConstant.gray600,
+                            fontSize: getFontSize(
+                              16.0,
+                            ),
+                            fontFamily: 'DM Sans',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ),
@@ -432,38 +365,25 @@ class PatientProfile1Dialog extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              alignment: Alignment.center,
-                              height: getVerticalSize(
-                                37,
-                              ),
-                              width: getHorizontalSize(
-                                136,
-                              ),
-                              padding: EdgeInsets.only(
-                                left: getHorizontalSize(
-                                  30,
-                                ),
-                                top: getVerticalSize(
-                                  7,
-                                ),
-                                right: getHorizontalSize(
-                                  30,
-                                ),
-                                bottom: getVerticalSize(
-                                  7,
-                                ),
-                              ),
-                              decoration: BoxDecoration(
-                                color: ColorConstant.amber700,
-                                borderRadius: BorderRadius.circular(
-                                  getHorizontalSize(
-                                    5,
-                                  ),
-                                ),
-                              ),
+                            TextButton(
+                              onPressed: () => {
+                                Navigator.pop(context, false),
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Dialog(
+                                          child: PatientProfile2Dialog());
+                                    })
+                              },
+                              style: TextButton.styleFrom(
+                                  backgroundColor: ColorConstant.amber700,
+                                  fixedSize: Size(getHorizontalSize(136), 37),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  )),
                               child: Text(
-                                'Create',
+                                "Create",
+                                overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: ColorConstant.whiteA700,
@@ -471,42 +391,20 @@ class PatientProfile1Dialog extends StatelessWidget {
                                     18,
                                   ),
                                   fontFamily: 'DM Sans',
-                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                             ),
-                            Container(
-                              alignment: Alignment.center,
-                              height: getVerticalSize(
-                                37,
-                              ),
-                              width: getHorizontalSize(
-                                136,
-                              ),
-                              padding: EdgeInsets.only(
-                                left: getHorizontalSize(
-                                  30,
-                                ),
-                                top: getVerticalSize(
-                                  7,
-                                ),
-                                right: getHorizontalSize(
-                                  30,
-                                ),
-                                bottom: getVerticalSize(
-                                  7,
-                                ),
-                              ),
-                              decoration: BoxDecoration(
-                                color: ColorConstant.gray600,
-                                borderRadius: BorderRadius.circular(
-                                  getHorizontalSize(
-                                    5,
-                                  ),
-                                ),
-                              ),
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, false),
+                              style: TextButton.styleFrom(
+                                  backgroundColor: ColorConstant.gray600,
+                                  fixedSize: Size(getHorizontalSize(136), 37),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  )),
                               child: Text(
-                                'Cancel',
+                                "Cancel",
+                                overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: ColorConstant.whiteA700,
@@ -514,7 +412,6 @@ class PatientProfile1Dialog extends StatelessWidget {
                                     18,
                                   ),
                                   fontFamily: 'DM Sans',
-                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                             ),

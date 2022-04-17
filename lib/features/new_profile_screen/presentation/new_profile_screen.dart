@@ -4,10 +4,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
 
 class NewProfileScreen extends StatelessWidget {
+  var genderArr = ['male', 'female', 'other'];
+  var disorderArray = ['low', 'mild', 'severe'];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: ColorConstant.blue700,
+          elevation: 0,
+        ),
         backgroundColor: ColorConstant.whiteA700,
         body: Container(
           decoration: BoxDecoration(
@@ -24,7 +31,7 @@ class NewProfileScreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Container(
                       height: getVerticalSize(
-                        936,
+                        1100,
                       ),
                       width: size.width,
                       child: Stack(
@@ -40,112 +47,76 @@ class NewProfileScreen extends StatelessWidget {
                               ),
                               decoration: BoxDecoration(
                                 color: ColorConstant.blue700,
-                                borderRadius: BorderRadius.circular(
-                                  getHorizontalSize(
-                                    23,
-                                  ),
-                                ),
                               ),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        left: getHorizontalSize(
-                                          24,
-                                        ),
-                                        top: getVerticalSize(
-                                          31,
-                                        ),
-                                        right: getHorizontalSize(
-                                          24,
-                                        ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: getVerticalSize(
+                                        57,
                                       ),
-                                      child: Container(
-                                        height: getVerticalSize(
-                                          9,
-                                        ),
-                                        width: getHorizontalSize(
-                                          7,
-                                        ),
-                                        child: SvgPicture.asset(
-                                          ImageConstant.imgVector123,
-                                          fit: BoxFit.fill,
-                                        ),
+                                      bottom: getVerticalSize(
+                                        121,
                                       ),
                                     ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        top: getVerticalSize(
-                                          57,
-                                        ),
-                                        bottom: getVerticalSize(
-                                          121,
-                                        ),
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                              left: getHorizontalSize(
-                                                117,
-                                              ),
-                                              right: getHorizontalSize(
-                                                117,
-                                              ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: getHorizontalSize(
+                                              117,
                                             ),
-                                            child: Container(
-                                              height: getVerticalSize(
-                                                23,
-                                              ),
-                                              width: getHorizontalSize(
-                                                28,
-                                              ),
-                                              child: SvgPicture.asset(
-                                                ImageConstant.imgVector3,
-                                                fit: BoxFit.fill,
-                                              ),
+                                            right: getHorizontalSize(
+                                              117,
                                             ),
                                           ),
-                                          Container(
+                                          child: Container(
+                                            height: getVerticalSize(
+                                              23,
+                                            ),
                                             width: getHorizontalSize(
-                                              157,
+                                              28,
                                             ),
-                                            margin: EdgeInsets.only(
-                                              left: getHorizontalSize(
-                                                117,
-                                              ),
-                                              right: getHorizontalSize(
-                                                116,
-                                              ),
-                                            ),
-                                            child: Text(
-                                              "Add profile picture",
-                                              maxLines: null,
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: ColorConstant.whiteA700,
-                                                fontSize: getFontSize(
-                                                  16,
-                                                ),
-                                                fontFamily: 'DM Sans',
-                                                fontWeight: FontWeight.w400,
-                                              ),
+                                            child: SvgPicture.asset(
+                                              ImageConstant.imgVector3,
+                                              fit: BoxFit.fill,
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                        Container(
+                                          width: getHorizontalSize(
+                                            157,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                            left: getHorizontalSize(
+                                              117,
+                                            ),
+                                            right: getHorizontalSize(
+                                              116,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            "Add profile picture",
+                                            maxLines: null,
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: ColorConstant.whiteA700,
+                                              fontSize: getFontSize(
+                                                16,
+                                              ),
+                                              fontFamily: 'DM Sans',
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
@@ -238,6 +209,47 @@ class NewProfileScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
+                                            child: TextFormField(
+                                              textAlignVertical:
+                                                  TextAlignVertical.center,
+                                              decoration: InputDecoration(
+                                                contentPadding: EdgeInsets.only(
+                                                    left: getHorizontalSize(16),
+                                                    top: getHorizontalSize(16)),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                              ),
+                                              style: TextStyle(
+                                                color: ColorConstant.gray600,
+                                                fontSize: getFontSize(
+                                                  16.0,
+                                                ),
+                                                fontFamily: 'DM Sans',
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -293,6 +305,47 @@ class NewProfileScreen extends StatelessWidget {
                                                 getHorizontalSize(
                                                   10,
                                                 ),
+                                              ),
+                                            ),
+                                            child: TextFormField(
+                                              textAlignVertical:
+                                                  TextAlignVertical.center,
+                                              decoration: InputDecoration(
+                                                contentPadding: EdgeInsets.only(
+                                                    left: getHorizontalSize(16),
+                                                    top: getHorizontalSize(16)),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                              ),
+                                              style: TextStyle(
+                                                color: ColorConstant.gray600,
+                                                fontSize: getFontSize(
+                                                  16.0,
+                                                ),
+                                                fontFamily: 'DM Sans',
+                                                fontWeight: FontWeight.w400,
                                               ),
                                             ),
                                           ),
@@ -352,6 +405,47 @@ class NewProfileScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
+                                            child: TextFormField(
+                                              textAlignVertical:
+                                                  TextAlignVertical.center,
+                                              decoration: InputDecoration(
+                                                contentPadding: EdgeInsets.only(
+                                                    left: getHorizontalSize(16),
+                                                    top: getHorizontalSize(16)),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                              ),
+                                              style: TextStyle(
+                                                color: ColorConstant.gray600,
+                                                fontSize: getFontSize(
+                                                  16.0,
+                                                ),
+                                                fontFamily: 'DM Sans',
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -409,6 +503,47 @@ class NewProfileScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
+                                            child: TextFormField(
+                                              textAlignVertical:
+                                                  TextAlignVertical.center,
+                                              decoration: InputDecoration(
+                                                contentPadding: EdgeInsets.only(
+                                                    left: getHorizontalSize(16),
+                                                    top: getHorizontalSize(16)),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    getHorizontalSize(
+                                                      5,
+                                                    ),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                              ),
+                                              style: TextStyle(
+                                                color: ColorConstant.gray600,
+                                                fontSize: getFontSize(
+                                                  16.0,
+                                                ),
+                                                fontFamily: 'DM Sans',
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -440,7 +575,7 @@ class NewProfileScreen extends StatelessWidget {
                                         Padding(
                                           padding: EdgeInsets.only(
                                             left: getHorizontalSize(
-                                              25,
+                                              12,
                                             ),
                                             top: getVerticalSize(
                                               15,
@@ -455,7 +590,7 @@ class NewProfileScreen extends StatelessWidget {
                                             shrinkWrap: true,
                                             itemCount: 3,
                                             itemBuilder: (context, index) {
-                                              return NewProfileItemWidget();
+                                              return NewProfileItemWidget(gender: genderArr[index],);
                                             },
                                           ),
                                         ),
@@ -491,158 +626,14 @@ class NewProfileScreen extends StatelessWidget {
                                               14,
                                             ),
                                           ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                height: getSize(
-                                                  16,
-                                                ),
-                                                width: getSize(
-                                                  16,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                  left: getHorizontalSize(
-                                                    25,
-                                                  ),
-                                                  top: getVerticalSize(
-                                                    1,
-                                                  ),
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  color: ColorConstant.amber700,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    getHorizontalSize(
-                                                      8,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: getHorizontalSize(
-                                                    9,
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "Low",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: TextStyle(
-                                                    color:
-                                                        ColorConstant.gray600,
-                                                    fontSize: getFontSize(
-                                                      16,
-                                                    ),
-                                                    fontFamily: 'DM Sans',
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                height: getSize(
-                                                  16,
-                                                ),
-                                                width: getSize(
-                                                  16,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                  left: getHorizontalSize(
-                                                    21,
-                                                  ),
-                                                  top: getVerticalSize(
-                                                    1,
-                                                  ),
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  color: ColorConstant.gray300,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    getHorizontalSize(
-                                                      8,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: getHorizontalSize(
-                                                    9,
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "Mild",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: TextStyle(
-                                                    color:
-                                                        ColorConstant.gray600,
-                                                    fontSize: getFontSize(
-                                                      16,
-                                                    ),
-                                                    fontFamily: 'DM Sans',
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                height: getSize(
-                                                  16,
-                                                ),
-                                                width: getSize(
-                                                  16,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                  left: getHorizontalSize(
-                                                    21,
-                                                  ),
-                                                  top: getVerticalSize(
-                                                    1,
-                                                  ),
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  color: ColorConstant.gray300,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    getHorizontalSize(
-                                                      8,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: getHorizontalSize(
-                                                    9,
-                                                  ),
-                                                  right: getHorizontalSize(
-                                                    59,
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "Severe",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: TextStyle(
-                                                    color:
-                                                        ColorConstant.gray600,
-                                                    fontSize: getFontSize(
-                                                      16,
-                                                    ),
-                                                    fontFamily: 'DM Sans',
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
+                                          child: ListView.builder(
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            shrinkWrap: true,
+                                            itemCount: 3,
+                                            itemBuilder: (context, index) {
+                                              return NewProfileItemWidget(gender: disorderArray[index],);
+                                            },
                                           ),
                                         ),
                                       ],

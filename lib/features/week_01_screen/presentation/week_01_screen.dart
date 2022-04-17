@@ -8,6 +8,24 @@ class Week01Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: ColorConstant.blue700,
+          title: Text(
+            "Week 01",
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: ColorConstant.whiteA700,
+              fontSize: getFontSize(
+                22,
+              ),
+              fontFamily: 'DM Sans',
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
         backgroundColor: ColorConstant.whiteA700,
         body: Container(
           decoration: BoxDecoration(
@@ -18,101 +36,7 @@ class Week01Screen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: ColorConstant.blue700,
-                  boxShadow: [
-                    BoxShadow(
-                      color: ColorConstant.black90040,
-                      spreadRadius: getHorizontalSize(
-                        2,
-                      ),
-                      blurRadius: getHorizontalSize(
-                        2,
-                      ),
-                      offset: Offset(
-                        0,
-                        2,
-                      ),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                        width: size.width,
-                        margin: EdgeInsets.only(
-                          top: getVerticalSize(
-                            26,
-                          ),
-                          bottom: getVerticalSize(
-                            25,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            left: getHorizontalSize(
-                              29,
-                            ),
-                            right: getHorizontalSize(
-                              152,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  top: getVerticalSize(
-                                    7,
-                                  ),
-                                  bottom: getVerticalSize(
-                                    13,
-                                  ),
-                                ),
-                                child: Container(
-                                  height: getVerticalSize(
-                                    9,
-                                  ),
-                                  width: getHorizontalSize(
-                                    7,
-                                  ),
-                                  child: SvgPicture.asset(
-                                    ImageConstant.imgVector122,
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "Week 01",
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: ColorConstant.whiteA700,
-                                  fontSize: getFontSize(
-                                    22,
-                                  ),
-                                  fontFamily: 'DM Sans',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
+               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.only(
                     top: getVerticalSize(
