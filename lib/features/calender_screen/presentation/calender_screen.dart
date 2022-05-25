@@ -1,13 +1,35 @@
+import 'package:haseeb_s_application/features/calender_screen/presentation/widgets/custom_clipper.dart';
+
 import './widgets/calender_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
 
 class CalenderScreen extends StatelessWidget {
+  static const routeName = '/calenderScreen';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: ColorConstant.blue700,
+          title: Text(
+            "Appointment Schedule",
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: ColorConstant.whiteA700,
+              fontSize: getFontSize(
+                22,
+              ),
+              fontFamily: 'DM Sans',
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
         backgroundColor: ColorConstant.whiteA700,
         body: Container(
           width: size.width,
@@ -44,224 +66,6 @@ class CalenderScreen extends StatelessWidget {
                               child: Stack(
                                 alignment: Alignment.topCenter,
                                 children: [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: getVerticalSize(
-                                          10,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        height: getVerticalSize(
-                                          141,
-                                        ),
-                                        width: getHorizontalSize(
-                                          390,
-                                        ),
-                                        child: SvgPicture.asset(
-                                          ImageConstant.imgVector13,
-                                          fit: BoxFit.fill,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.topCenter,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        left: getHorizontalSize(
-                                          16,
-                                        ),
-                                        top: getVerticalSize(
-                                          28,
-                                        ),
-                                        right: getHorizontalSize(
-                                          16,
-                                        ),
-                                        bottom: getVerticalSize(
-                                          28,
-                                        ),
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: size.width,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                    top: getVerticalSize(
-                                                      10,
-                                                    ),
-                                                    bottom: getVerticalSize(
-                                                      10,
-                                                    ),
-                                                  ),
-                                                  child: Container(
-                                                    height: getVerticalSize(
-                                                      9,
-                                                    ),
-                                                    width: getHorizontalSize(
-                                                      7,
-                                                    ),
-                                                    child: SvgPicture.asset(
-                                                      ImageConstant
-                                                          .imgVector123,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  "Appointment Schedule",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                    color:
-                                                        ColorConstant.whiteA700,
-                                                    fontSize: getFontSize(
-                                                      22,
-                                                    ),
-                                                    fontFamily: 'DM Sans',
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                    bottom: getVerticalSize(
-                                                      1,
-                                                    ),
-                                                  ),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                      getSize(
-                                                        14.0,
-                                                      ),
-                                                    ),
-                                                    child: Image.asset(
-                                                      ImageConstant.imgImage72,
-                                                      height: getSize(
-                                                        28,
-                                                      ),
-                                                      width: getSize(
-                                                        28,
-                                                      ),
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                              top: getVerticalSize(
-                                                35,
-                                              ),
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                    left: getHorizontalSize(
-                                                      81,
-                                                    ),
-                                                    top: getVerticalSize(
-                                                      4.5,
-                                                    ),
-                                                    bottom: getVerticalSize(
-                                                      4,
-                                                    ),
-                                                  ),
-                                                  child: Container(
-                                                    height: getVerticalSize(
-                                                      12.5,
-                                                    ),
-                                                    width: getHorizontalSize(
-                                                      7.5,
-                                                    ),
-                                                    child: SvgPicture.asset(
-                                                      ImageConstant.imgVector14,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                    left: getHorizontalSize(
-                                                      25.5,
-                                                    ),
-                                                  ),
-                                                  child: Text(
-                                                    "December 2021",
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      color: ColorConstant
-                                                          .whiteA700,
-                                                      fontSize: getFontSize(
-                                                        16,
-                                                      ),
-                                                      fontFamily: 'DM Sans',
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                    left: getHorizontalSize(
-                                                      27,
-                                                    ),
-                                                    top: getVerticalSize(
-                                                      3.5,
-                                                    ),
-                                                    right: getHorizontalSize(
-                                                      86.5,
-                                                    ),
-                                                    bottom: getVerticalSize(
-                                                      5,
-                                                    ),
-                                                  ),
-                                                  child: Container(
-                                                    height: getVerticalSize(
-                                                      12.5,
-                                                    ),
-                                                    width: getHorizontalSize(
-                                                      7.5,
-                                                    ),
-                                                    child: SvgPicture.asset(
-                                                      ImageConstant.imgVector15,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
                                   Align(
                                     alignment: Alignment.bottomLeft,
                                     child: Container(
@@ -305,6 +109,105 @@ class CalenderScreen extends StatelessWidget {
                                             ),
                                           ),
                                         ],
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topCenter,
+                                    child: ClipPath(
+                                      clipper: MyCustomClipper(),
+                                      clipBehavior: Clip.antiAlias,
+                                      child: Container(
+                                        height: getVerticalSize(
+                                          160,
+                                        ),
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                            color: ColorConstant.blue700),
+                                        width: double.infinity,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                left: getHorizontalSize(
+                                                  81,
+                                                ),
+                                                top: getVerticalSize(
+                                                  4.5,
+                                                ),
+                                                bottom: getVerticalSize(
+                                                  4,
+                                                ),
+                                              ),
+                                              child: Container(
+                                                height: getVerticalSize(
+                                                  12.5,
+                                                ),
+                                                width: getHorizontalSize(
+                                                  7.5,
+                                                ),
+                                                child: SvgPicture.asset(
+                                                  ImageConstant.imgVector14,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                left: getHorizontalSize(
+                                                  25.5,
+                                                ),
+                                              ),
+                                              child: Text(
+                                                "December 2021",
+                                                overflow: TextOverflow.ellipsis,
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                  color:
+                                                      ColorConstant.whiteA700,
+                                                  fontSize: getFontSize(
+                                                    16,
+                                                  ),
+                                                  fontFamily: 'DM Sans',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                left: getHorizontalSize(
+                                                  27,
+                                                ),
+                                                top: getVerticalSize(
+                                                  3.5,
+                                                ),
+                                                right: getHorizontalSize(
+                                                  86.5,
+                                                ),
+                                                bottom: getVerticalSize(
+                                                  5,
+                                                ),
+                                              ),
+                                              child: Container(
+                                                height: getVerticalSize(
+                                                  12.5,
+                                                ),
+                                                width: getHorizontalSize(
+                                                  7.5,
+                                                ),
+                                                child: SvgPicture.asset(
+                                                  ImageConstant.imgVector15,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),

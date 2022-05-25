@@ -2,8 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
 import 'package:haseeb_s_application/features/recordings_screen/presentation/recordings_screen.dart';
+import 'package:haseeb_s_application/features/words_screen/sound_player.dart';
 
-class Group207ItemWidget extends StatelessWidget {
+class Group207ItemWidget extends StatefulWidget {
+  final int index;
+  final String id;
+  final num accuracy;
+  final String recording;
+
+  const Group207ItemWidget(
+      {Key? key,
+      required this.index,
+      required this.id,
+      required this.recording,
+      required this.accuracy})
+      : super(key: key);
+
+  @override
+  State<Group207ItemWidget> createState() => _Group207ItemWidgetState();
+}
+
+class _Group207ItemWidgetState extends State<Group207ItemWidget> {
+  final player = SoundPlayer();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    player.init();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    player.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,7 +93,7 @@ class Group207ItemWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    "Day 01",
+                    "Day ${widget.index + 1}",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -106,7 +141,7 @@ class Group207ItemWidget extends StatelessWidget {
               ),
             ),
             child: Text(
-              "Correctness Percentage: 90%",
+              "Correctness Percentage: ${widget.accuracy}",
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.left,
               style: TextStyle(
@@ -120,8 +155,11 @@ class Group207ItemWidget extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => RecordingsScreen())),
+            onTap: () async {
+              await player.toggle(
+                  path: widget.recording, whenFinished: () => setState(() {}));
+              setState(() {});
+            },
             child: Align(
               alignment: Alignment.center,
               child: Padding(
@@ -170,7 +208,7 @@ class Group207ItemWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'View Recordings',
+                    'Listen Recording',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: ColorConstant.whiteA700,

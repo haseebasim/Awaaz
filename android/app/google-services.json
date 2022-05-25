@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "279948072865",
+    "firebase_url": "https://awaaz-db4a4-default-rtdb.firebaseio.com",
+    "project_id": "awaaz-db4a4",
+    "storage_bucket": "awaaz-db4a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279948072865:android:fe4998ede01b567df55de0",
+        "android_client_info": {
+          "package_name": "com.example.awaaz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279948072865-cv79vpea7ntlu86ud5m5bvpi65c1s8ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAppQpMtkWGc62rXOq8xQLhj_5_x_zwgS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279948072865-cv79vpea7ntlu86ud5m5bvpi65c1s8ib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

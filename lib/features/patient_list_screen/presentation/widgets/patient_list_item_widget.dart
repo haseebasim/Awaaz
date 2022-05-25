@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
+import 'package:haseeb_s_application/provider/patients.dart';
 
 class PatientListItemWidget extends StatelessWidget {
+  final Patient patientDetails;
+
+  const PatientListItemWidget({Key? key, required this.patientDetails})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,21 +49,18 @@ class PatientListItemWidget extends StatelessWidget {
                 16,
               ),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(
-                getSize(
-                  40.0,
+            child: CircleAvatar(
+              radius: 30,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  getSize(
+                    40.0,
+                  ),
                 ),
-              ),
-              child: Image.asset(
-                ImageConstant.imgImage73,
-                height: getVerticalSize(
-                  80,
+                child: Image.network(
+                  patientDetails.profileImage,
+                  fit: BoxFit.cover,
                 ),
-                width: getHorizontalSize(
-                  77,
-                ),
-                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -88,7 +91,7 @@ class PatientListItemWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    "Jiliye James",
+                    patientDetails.name,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: TextStyle(
@@ -111,7 +114,7 @@ class PatientListItemWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    "Age: Female, 21",
+                    "Age: ${patientDetails.gender}, ${patientDetails.age}",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: TextStyle(
@@ -131,7 +134,7 @@ class PatientListItemWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    "Gulberg Town, Islamabad",
+                    patientDetails.address,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: TextStyle(

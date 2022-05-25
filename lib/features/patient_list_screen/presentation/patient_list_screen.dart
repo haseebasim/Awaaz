@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:haseeb_s_application/features/new_profile_screen/presentation/new_profile_screen.dart';
 import 'package:haseeb_s_application/features/patient_profile_screen/presentation/patient_profile_screen.dart';
+import 'package:haseeb_s_application/provider/patients.dart';
+import 'package:provider/provider.dart';
 
 import './widgets/patient_list_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
 
 class PatientListScreen extends StatelessWidget {
+  static const routeName = '/patientList';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -167,10 +171,8 @@ class PatientListScreen extends StatelessWidget {
                         ),
                         child: IconButton(
                             padding: EdgeInsets.zero,
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => NewProfileScreen())),
+                            onPressed: () => Navigator.pushNamed(
+                                context, NewProfileScreen.routeName),
                             iconSize: getHorizontalSize(24),
                             icon: Icon(
                               Icons.add,
@@ -195,20 +197,23 @@ class PatientListScreen extends StatelessWidget {
                           13,
                         ),
                       ),
-                      child: SingleChildScrollView(
-                        child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: 8,
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                                onTap: () => Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            PatientProfileScreen())),
-                                child: PatientListItemWidget());
-                          },
+                      child: Consumer<Patients>(
+                        builder: (context, value, child) =>
+                            SingleChildScrollView(
+                          child: ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: value.PatientList.length,
+                            itemBuilder: (context, index) {
+                              print(index);
+                              return InkWell(
+                                  onTap: () => Navigator.pushNamed(
+                                      context, PatientProfileScreen.routeName, arguments: value.PatientList[index].id),
+                                  child: PatientListItemWidget(
+                                    patientDetails: value.PatientList[index],
+                                  ));
+                            },
+                          ),
                         ),
                       ),
                     ),

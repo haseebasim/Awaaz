@@ -1,11 +1,37 @@
+import 'dart:developer';
+
+import 'package:haseeb_s_application/core/firebase.dart';
+import 'package:haseeb_s_application/provider/course.dart';
+import 'package:haseeb_s_application/provider/patients.dart';
+import 'package:provider/provider.dart';
+
 import './widgets/group207_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
 
-class Week01Screen extends StatelessWidget {
+class Week01Screen extends StatefulWidget {
+  static const routeName = '/showPatientWeeklyProgress';
+
+  @override
+  State<Week01Screen> createState() => _Week01ScreenState();
+}
+
+class _Week01ScreenState extends State<Week01Screen> {
+  var _patientProgress;
+  var _patientId;
+  var _counter = 0;
+  @override
+  void initState() {
+    _patientProgress =
+        Provider.of<Patients>(context, listen: false).PatientProgress;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)?.settings.arguments as String;
+    _patientId = args.split('-')[0];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -13,7 +39,7 @@ class Week01Screen extends StatelessWidget {
           elevation: 0,
           backgroundColor: ColorConstant.blue700,
           title: Text(
-            "Week 01",
+            "Week ${args.split('-')[1]}",
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -36,7 +62,7 @@ class Week01Screen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-               Expanded(
+              Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.only(
                     top: getVerticalSize(
@@ -51,133 +77,49 @@ class Week01Screen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: getHorizontalSize(
-                                  49,
-                                ),
-                                top: getVerticalSize(
-                                  20,
-                                ),
-                              ),
-                              child: Container(
-                                height: getSize(
-                                  21,
-                                ),
-                                width: getSize(
-                                  21,
-                                ),
-                                child: SvgPicture.asset(
-                                  ImageConstant.imgAkariconssear3,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
+                      Consumer<Course>(
+                        builder: (context, value, child) => Padding(
+                          padding: EdgeInsets.only(
+                            left: getHorizontalSize(
+                              22,
                             ),
-                            Container(
-                              height: getVerticalSize(
-                                40,
-                              ),
-                              width: getHorizontalSize(
-                                197,
-                              ),
-                              margin: EdgeInsets.only(
-                                left: getHorizontalSize(
-                                  18,
-                                ),
-                                right: getHorizontalSize(
-                                  105,
-                                ),
-                                bottom: getVerticalSize(
-                                  1,
-                                ),
-                              ),
-                              child: Stack(
-                                alignment: Alignment.topRight,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.bottomLeft,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        top: getVerticalSize(
-                                          10,
-                                        ),
-                                        right: getHorizontalSize(
-                                          10,
-                                        ),
-                                      ),
-                                      child: Text(
-                                        "Search by keywords",
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: ColorConstant.whiteA700,
-                                          fontSize: getFontSize(
-                                            14,
-                                          ),
-                                          fontFamily: 'DM Sans',
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.topRight,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        left: getHorizontalSize(
-                                          10,
-                                        ),
-                                        bottom: getVerticalSize(
-                                          10,
-                                        ),
-                                      ),
-                                      child: Text(
-                                        "Bi-Labial Sounds",
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: ColorConstant.blue700,
-                                          fontSize: getFontSize(
-                                            22,
-                                          ),
-                                          fontFamily: 'DM Sans',
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            top: getVerticalSize(
+                              17,
                             ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: getHorizontalSize(
-                            22,
+                            right: getHorizontalSize(
+                              19,
+                            ),
                           ),
-                          top: getVerticalSize(
-                            17,
+                          child: ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: value.dayCourseItem.length,
+                            itemBuilder: (context, index) {
+                              print('value.dayCourseItem');
+                              print(_patientId);
+                              print(_patientProgress);
+                              var dayId =
+                                  value.dayCourseItem['days'][index]['_id'];
+                              bool flag = false;
+                              var data;
+                              _patientProgress.forEach((e) {
+                                if (e['day']['_id'] == dayId &&
+                                    _patientId == e['patientId']) {
+                                  flag = true;
+                                  data = e['day'];
+                                  _counter += 1;
+                                }
+                              });
+                              return flag
+                                  ? Group207ItemWidget(
+                                      id: data['_id'],
+                                      accuracy: data['accuracy'],
+                                      index: index,
+                                      recording: data['recording'],
+                                    )
+                                  : SizedBox();
+                            },
                           ),
-                          right: getHorizontalSize(
-                            19,
-                          ),
-                        ),
-                        child: ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: 7,
-                          itemBuilder: (context, index) {
-                            return Group207ItemWidget();
-                          },
                         ),
                       ),
                     ],

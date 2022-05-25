@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
 
 class ChatListScreen extends StatelessWidget {
+  static const routeName = '/chatList';
   @override
   Widget build(BuildContext context) {
     return SafeArea(

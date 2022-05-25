@@ -37,6 +37,7 @@ class _NewProfileItemWidgetState extends State<NewProfileItemWidget> {
             widget.gender = value!;
           });
         },
+        
       ),
     );
   }

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:haseeb_s_application/core/app_export.dart';
+import 'package:haseeb_s_application/provider/patients.dart';
 
 class ActivePatientCard extends StatelessWidget {
+  final Patient patientDetails;
+
+  const ActivePatientCard({Key? key, required this.patientDetails})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return IntrinsicWidth(
@@ -50,8 +56,8 @@ class ActivePatientCard extends StatelessWidget {
                       47.395,
                     ),
                   ),
-                  child: Image.asset(
-                    ImageConstant.imgImage7,
+                  child: Image.network(
+                    patientDetails.profileImage,
                     height: getSize(
                       94.79,
                     ),
@@ -76,7 +82,7 @@ class ActivePatientCard extends StatelessWidget {
                 ),
               ),
               child: Text(
-                "Jilin James",
+                patientDetails.name,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -102,7 +108,7 @@ class ActivePatientCard extends StatelessWidget {
                 ),
               ),
               child: Text(
-                "Active",
+                patientDetails.active ? 'Active' : 'Inactive',
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -112,81 +118,6 @@ class ActivePatientCard extends StatelessWidget {
                   ),
                   fontFamily: 'DM Sans',
                   fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: getHorizontalSize(
-                  17,
-                ),
-                top: getVerticalSize(
-                  12,
-                ),
-                right: getHorizontalSize(
-                  17,
-                ),
-              ),
-              child: Text(
-                "Progress: 90%",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: ColorConstant.gray600,
-                  fontSize: getFontSize(
-                    16,
-                  ),
-                  fontFamily: 'DM Sans',
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: getHorizontalSize(
-                    16.59,
-                  ),
-                  top: getVerticalSize(
-                    7.1900024,
-                  ),
-                  right: getHorizontalSize(
-                    16.589996,
-                  ),
-                  bottom: getVerticalSize(
-                    23.700012,
-                  ),
-                ),
-                child: Container(
-                  height: getVerticalSize(
-                    7.11,
-                  ),
-                  width: getHorizontalSize(
-                    157.58,
-                  ),
-                  decoration: BoxDecoration(
-                    color: ColorConstant.gray600,
-                    borderRadius: BorderRadius.circular(
-                      getHorizontalSize(
-                        10,
-                      ),
-                    ),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(
-                      getHorizontalSize(
-                        10,
-                      ),
-                    ),
-                    child: LinearProgressIndicator(
-                      value: 0.85,
-                      backgroundColor: ColorConstant.gray600,
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        ColorConstant.amber700,
-                      ),
-                    ),
-                  ),
                 ),
               ),
             ),
